@@ -22,6 +22,7 @@ body {
   color: var(--color-font-base);
   line-height: 1.5;
   margin: 0;
+  overflow-x: hidden;
   min-height: 100%;
   background-color: var(--color-background);
 }
@@ -86,6 +87,10 @@ button {
   display: none;
 }
 
+.menu {
+  display: none;
+}
+
 .toggle-button {
   display: none;
   cursor: pointer;
@@ -116,6 +121,7 @@ button {
 
 .app__banner {
   min-height: 1000px;
+  width: 100%;
   background-image: linear-gradient(
       360deg,
       var(--color-header),
@@ -165,11 +171,9 @@ button {
 }
 
 .app__built-wrapper {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   text-align: center;
+  width: 1000px;
+  margin: auto;
 }
 
 .app__built-title {
@@ -190,8 +194,9 @@ button {
 /*--------------------------------Description-------------------------------*/
 
 .app__description {
-  width: 1600px;
-  padding: 240px 150px;
+  width: calc(100% - 300px);
+  padding: 240px 0px;
+  margin: auto;
 }
 
 .app__description-wrapper {
@@ -259,17 +264,33 @@ button {
     ),
     url(./assets/img/bg-signup.jpg);
   background-size: cover;
+  width: 100%;
+  position: relative;
   background-repeat: no-repeat;
   background-position: center center;
 }
+
+.signup__email {
+  display: flex;
+  gap: 20px;
+}
+
 .app__signup-wrapper {
   display: flexbox;
   justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
+
 .plane-icon {
   fill: var(--color-title);
   color: var(--color-title);
-  margin-left: 390px;
+  width: fit-content;
+  margin: auto;
+  display: block;
 }
 
 .signup-title {
@@ -285,6 +306,7 @@ button {
   height: 90px;
   width: 560px;
   border: none;
+  display: block;
   border-radius: 5px;
   padding: 1.5rem;
 }
@@ -294,10 +316,11 @@ button {
   opacity: 0.6;
   font-size: var(--font-size-base);
   height: 90px;
+  display: block;
   width: 248px;
+  margin: auto;
   border: none;
   border-radius: 5px;
-  margin-left: 2rem;
   cursor: pointer;
 }
 
@@ -315,12 +338,30 @@ button {
 
 /*--------------------------------Responsive-------------------------------*/
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1280px) {
   .app__description {
-    width: 1024px;
+    width: calc(100% - 150px);
     padding: 200px 0;
     position: relative;
   }
+
+  .app__shoreline-img {
+    width: calc(100% - 30px);
+    margin: auto;
+  }
+
+  .app__built-wrapper {
+    width: calc(100% - 150px);
+  }
+
+  .para__image {
+    width: calc((100% - 30px));
+  }
+
+  .signup-input {
+    margin: auto;
+  }
+
   .app__description-wrapper {
     display: none;
   }
@@ -329,10 +370,15 @@ button {
     display: block;
   }
 
+  .des__section-mobile {
+    margin-top: 30px;
+  }
+
   .des__para-mobile {
     background: var(--color-header);
     color: var(--color-font-base);
     text-align: center;
+    padding: 20px 30px;
   }
 
   .para-shoreline-mobile {
@@ -342,26 +388,49 @@ button {
 
   .des__img-mobile {
     width: 100%;
-    max-width: 950px;
+    display: block;
   }
 }
 
 @media screen and (max-width: 767px) {
   .app__navbar {
-    padding: 1.5rem 3rem;
+    padding: 1rem;
   }
-  .app__navbar-logo {
+
+  .signup-input {
+    padding: 5px;
+    font-size: 14px;
+    width: 100%;
+    height: 60px;
+  }
+
+  .app__description {
+    width: calc(100% - 30px);
+  }
+
+  .signup-notify {
+    height: 60px;
+    font-size: 14px;
   }
 
   label {
     color: var(--color-btn);
   }
+
   .toggle-button {
     display: block;
-    color: var(--color-btn);
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+  }
+
+  .toggle-button span {
+    background-color: rgb(105, 105, 253);
+  }
+
+  .footer-small {
+    font-size: 14px;
+    padding-bottom: 60px;
   }
 
   .app__navbar-links {
@@ -393,6 +462,29 @@ button {
 
 @media screen and (max-width: 479px) {
   .app__header {
-    width: 30%;
+  }
+
+  .menu-title {
+    color: rgb(105, 105, 253);
+  }
+
+  .menu {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    border-radius: 5px;
+    border: 1px solid rgb(105, 105, 253);
+    padding: 10px;
+  }
+
+  .app__built-wrapper {
+    width: calc(100% - 30px);
+  }
+
+  .des__para-mobile {
+    background: var(--color-header);
+    color: var(--color-font-base);
+    text-align: center;
+    padding: 20px;
   }
 }
